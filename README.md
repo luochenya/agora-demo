@@ -14,6 +14,7 @@ npm run build:prod
 
 ```bash
 # 臨時訪問路徑（進入頁面3秒載入動畫 然後跳轉至對應路由 路由不對會跳轉至請求失敗頁）
+# 注意！！！每次進來需要更新/src/view/home/index.vue文件的agoraToken  時效24小時 更新地址https://console.shengwang.cn/
 # 老師端
 http://localhost:8080/#/?key=1
 # 學生端
@@ -99,6 +100,7 @@ vue/cli => 4.5.6
 │   |   ├── employee 員工端（客服）文件夾
 │   |   |   ├── components 首頁相關文件
 │   |   |   |   ├── Chat.vue 聊天窗口組件
+│   |   |   |   ├── EmployeeCamera.vue 員工端視訊組件
 │   |   |   |   ├── Header.vue 頭部功能欄組件
 │   |   |   |   ├── Sketchpad.vue 畫板組件
 │   |   |   |   ├── StudentCamera.vue 學生端視訊組件
