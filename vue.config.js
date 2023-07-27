@@ -10,7 +10,7 @@ module.exports = {
     // inline: true, // 热更新开关 默认true
     // host: 'localhost', // 访问域名 默认127.0.0.1
     // port: '8080', // 访问端口 默认8080
-    // https: true, // 开启https 默认false
+    https: true, // 开启https 默认false
     // open: true, // 开启自动用默认浏览器打开网页
     // proxy: { // 代理服务器
     //   '/api': {

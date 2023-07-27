@@ -43,7 +43,7 @@ export default {
       if (key) {
         sessionStorage.setItem('key', key)
         sessionStorage.setItem('agoraChannel', '777')
-        sessionStorage.setItem('agoraToken', '007eJxTYLhcILj/2c42aY7H3Ess9Vm63XYtXfR0/c5zBTLLfdfwGH1SYEiysDRPTklJS0yytDAxSrWwTLFMSUozSTa1MDRMNkg1Ovx/Q0pDICPDXdsMBkYoBPGZGczNzRkYAGh0H+8=')
+        sessionStorage.setItem('agoraToken', '007eJxTYNg699LLM33V5oef+aWzfbtc9vuJTgeHX0xyWnqntca88DUKDEkWlubJKSlpiUmWFiZGqRaWKZYpSWkmyaYWhobJBqlGU48fTGkIZGR4vv0HCyMDBIL4zAzm5uYMDADv8CHO')
         sessionStorage.setItem('agoraUid', key)
       }
       // 根據權限跳轉頁面

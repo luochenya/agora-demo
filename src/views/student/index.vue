@@ -84,10 +84,13 @@ export default {
       // 媒體設備列表
       // 視訊列表
       agoraCamerasList: [],
+      agoraCamerasActive: '',
       // 麥克風列表
       agoraMicrophoneList: [],
+      agoraMicrophoneActive: '',
       // 喇叭列表
       agoraSpeakerList: [],
+      agoraSpeakerActive: '',
 
       // 上線驗證時間戳
       onlineTime: 0,
@@ -107,18 +110,29 @@ export default {
     async getMedia() {
       // 獲取agora的視訊列表
       this.agoraCamerasList = await AgoraRTC.getCameras()
+      this.agoraCamerasActive = this.agoraCamerasList?.[0]?.deviceId || ''
       // 獲取agora的麥克風列表
       this.agoraMicrophoneList = await AgoraRTC.getMicrophones()
+      this.agoraMicrophoneActive = this.agoraMicrophoneList?.[0]?.deviceId || ''
       // 獲取agora的喇叭列表
       this.agoraSpeakerList = await AgoraRTC.getPlaybackDevices()
+      this.agoraSpeakerActive = this.agoraSpeakerList?.[0]?.deviceId || ''
     },
     // 切換視訊設備
     agoraCamerasChange(val) {
       if (this.localCameraClient) {
-        this.localCameraClient.setDevice(this.agoraCamerasActive).then(() => {
+        const loading = this.$loading({
+          lock: true,
+          text: 'Loading',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
+        this.localCameraClient.setDevice(val).then(() => {
           console.log('切換視訊成功 => ')
         }).catch(err => {
           console.log('切換視訊報錯 => ', err)
+        }).finally(() => {
+          loading.close();
         })
       } else {
         alert('切換異常，請刷新後重試！')
@@ -127,10 +141,18 @@ export default {
     // 切換麥克風設備
     agoraMicrophoneChange(val) {
       if (this.localMicrophoneClient) {
-        this.localMicrophoneClient.setDevice(this.agoraMicrophoneActive).then(() => {
+        const loading = this.$loading({
+          lock: true,
+          text: 'Loading',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        });
+        this.localMicrophoneClient.setDevice(val).then(() => {
           console.log('切換麥克風成功 => ')
         }).catch(err => {
           console.log('切換麥克風報錯 => ', err)
+        }).finally(() => {
+          loading.close();
         })
       } else {
         alert('切換異常，請刷新後重試！')
@@ -240,6 +262,11 @@ export default {
       await this.agoraCameraClient.publish([this.localCameraClient, this.localMicrophoneClient]);
       // 播放本地視頻
       this.localCameraClient.play("local-studentCamera");
+
+      // 同时切换默认设备
+      this.agoraCamerasChange(this.agoraCamerasActive)
+      this.agoraMicrophoneChange(this.agoraMicrophoneActive)
+      this.agoraSpeakerChange(this.agoraSpeakerActive)
     },
     // 視訊狀態開關
     async agoraCameraEnabled(val) {

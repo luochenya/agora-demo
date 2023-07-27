@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "@/assets/style/index.scss"
-import { Popover, Slider, Input, Select, Option, OptionGroup, ColorPicker } from 'element-ui';
+import { Popover, Slider, Input, Select, Option, OptionGroup, ColorPicker, Loading } from 'element-ui';
 Vue.use(Popover)
 Vue.use(Slider)
 Vue.use(Input)
@@ -11,6 +11,7 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(OptionGroup)
 Vue.use(ColorPicker)
+Vue.use(Loading)
 
 Vue.config.productionTip = false;
 

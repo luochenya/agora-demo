@@ -63,14 +63,6 @@ export default {
       // 遠端視頻列表
       remoteUserVideoList: {},
 
-      // 媒體設備列表
-      // 視訊列表
-      agoraCamerasList: [],
-      // 麥克風列表
-      agoraMicrophoneList: [],
-      // 喇叭列表
-      agoraSpeakerList: [],
-
       // 上線驗證時間戳
       onlineTime: 0,
       // 上線驗證時長

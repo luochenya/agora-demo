@@ -16,17 +16,17 @@ npm run build:prod
 # 臨時訪問路徑（進入頁面3秒載入動畫 然後跳轉至對應路由 路由不對會跳轉至請求失敗頁）
 # 注意！！！每次進來需要更新/src/view/home/index.vue文件的agoraToken  時效24小時 更新地址https://console.shengwang.cn/
 # 老師端
-http://localhost:8080/#/?key=1
+https://localhost:8080/#/?key=1
 # 學生端
-http://localhost:8080/#/?key=2
+https://localhost:8080/#/?key=2
 # 客服端
-http://localhost:8080/#/?key=3
+https://localhost:8080/#/?key=3
 # 家長端
-http://localhost:8080/#/?key=4
+https://localhost:8080/#/?key=4
 # 請求超時
-http://localhost:8080/#/?key=5
+https://localhost:8080/#/?key=5
 # 請求失敗
-http://localhost:8080/#/?key=6
+https://localhost:8080/#/?key=6
 ```
 
 ```bash
